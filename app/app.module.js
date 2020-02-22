@@ -13,8 +13,27 @@ var myApp = angular.module('App', []); // the variable and the parameter inside 
 // });
 // this is will the dependencies and the function when you wrap the second parameter as an array
 // because sometime we might have multiple controllers with the same name of scopes
+// this sets the initial state
 myApp.controller('AppController',['$scope', function($scope) {
   $scope.message ="Hi";
-
   $scope.ninjas = ['don', 'mike', 'leo'];
+  
+  $scope.people = [
+    {
+      name: "Bob",
+      age: 23
+    },
+    {
+      name: "Sam",
+      age: 2     
+    },
+    {      
+      name: "Jessy",
+      age: 42
+    },
+    {      
+      name: "Sally",
+      age: 37
+    }
+  ]
 }]);

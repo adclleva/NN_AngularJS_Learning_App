@@ -11,7 +11,7 @@
     <div ng-controller="AppController">
       <!-- this is an example of 2-way data binding  -->
       <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
-      <input type="text" ng-model="favMeat" placeholder="eanter you fav meat" />
+      <input type="text" ng-model="favMeat" placeholder="enter you fav meat" />
       <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
       
       <!-- this is an example of an expression -->
@@ -26,10 +26,25 @@
       <br/> 
 
       <!-- the scope data overrrides the data in the ng-init directive above -->
-      <li ng-repeat="ninja in ninjas">{{ ninja}}</li>
-  
+      <li ng-repeat="ninja in ninjas">{{ninja}}</li>
+      {{test1}}
+
       <!-- this message comes from the scope of the controller function -->
       <p>{{message}}</p>
+
+      <!-- the pipe operator allows us to alter the given data 
+      we can use it multiple times -->
+      <li ng-repeat="person in people | orderBy: 'name'">{{person.name}}</li>
+      
+        <br>
+
+      <!-- whatever we type in this input, it will be stored into search for our filter  -->
+      <input type="text" ng-model="search" placeholder="type here to filter the list below"/> 
+      <ul>
+        <li ng-repeat="person in people | orderBy: 'name' | filter: search">{{person.name}} - {{person.age}}</li>
+      </ul>
+
+        <li ng-repeat="person in people | orderBy: 'name' | filter: search">{{person.name}} - {{person.age | currency: '£'}}</li>
     </div>
   </body>
 </html>
