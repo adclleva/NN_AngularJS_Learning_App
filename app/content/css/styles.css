@@ -3,6 +3,10 @@ body{
   margin: 0;
 }
 
+.blue {
+  color: blue;
+}
+
 h1,h2,h3{
   margin: 0;
 }

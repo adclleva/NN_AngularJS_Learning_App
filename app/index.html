@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- this is also a directive -->
+<html lang="en" ng-app>
   <head>
     <title>TheNetNinja Angular Playlist</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="lib/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-init="number=[1,2,3,4]; color='pink'">
+    <!-- this is an example of 2-way data binding  -->
+    <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
+    <input type="text" ng-model="favMeat" placeholder="eanter you fav meat" />
+    <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
 
+    <!-- this is an example of an expression -->
+    <p>{{2 + 2}}</p>
+
+    <p>You're favorite number is {{number[2]}}</p>
   </body>
 </html>
