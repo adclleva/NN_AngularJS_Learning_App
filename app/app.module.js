@@ -1,4 +1,5 @@
 // the empty array is for dependencies
+// when routing,we need to add in the routing dependency inside our module
 var myApp = angular.module('App', []); // the variable and the parameter inside the module does not have to be the same
 // the html is now being controlled by this module
 
