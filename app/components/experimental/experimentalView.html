@@ -1,5 +1,4 @@
 <div class="content">
-  <div ng-controller="AppController">
     <!-- this is an example of 2-way data binding  -->
     <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
     <input type="text" ng-model="favMeat" placeholder="enter you fav meat" />
@@ -52,5 +51,4 @@
     <ul>
       <li ng-repeat="person in people | orderBy: 'name' | filter: search2" ng-hide="person.available">{{person.name}} - {{person.age}}</li>
     </ul>
-  </div>
 </div>

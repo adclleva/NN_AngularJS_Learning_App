@@ -1,12 +1,30 @@
 // the empty array is for dependencies
 // when routing,we need to add in the routing dependency inside our module
-var myApp = angular.module('App', []); // the variable and the parameter inside the module does not have to be the same
+var myApp = angular.module('myApp', ['ngRoute']); // the variable and the parameter inside the module does not have to be the same
 // the html is now being controlled by this module
 
 // this function will trigger before the application funs
-// myApp.config(function() {
+myApp.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/home', {
+      // ! when using templateURL, it's important that you start from the root directory when calling it
+      // ! because it is usually for external template file
+      templateUrl: './app/components/home/homeView.html'
+    })
+    .when('/list', {
+      templateUrl: './app/components/list/listView.html',
+      controller: 'AppController'
+    })
+    .when('/experimental', {
+      templateUrl: './app/components/experimental/experimentalView.html',
+      controller: 'AppController'
+    })
+    .otherwise({
+      redirectTo: '/home'
+    });
 
-// });
+}]);
+
 
 // this function will trigger when it runs
 // myApp.run(function() {
