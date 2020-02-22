@@ -3,11 +3,17 @@
 <html lang="en" ng-app="App">
   <head>
     <title>TheNetNinja Angular Playlist</title>
-    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="assets//css/styles.css" rel="stylesheet" type="text/css" />
     <script src="assets/lib/angular.min.js"></script>
     <script src="app/app.module.js"></script>
   </head>
   <body ng-init="number=[1,2,3,4]; color='pink'; ninjas=['yoshi', 'ryu', 'don']">
+
+    <!-- we can use ng-include directive to place components into this html -->
+    <!-- <ng-include src="'/app/components/header.html'"></ng-include> 
+          this code below does the same thing as the one above -->
+    <header ng-include="'/app/components/header.html'"></header>
+
     <div ng-controller="AppController">
       <!-- this is an example of 2-way data binding  -->
       <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
