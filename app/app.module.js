@@ -11,7 +11,10 @@ var myApp = angular.module('App', []); // the variable and the parameter inside 
 // myApp.run(function() {
 
 // });
+// this is will the dependencies and the function when you wrap the second parameter as an array
+// because sometime we might have multiple controllers with the same name of scopes
+myApp.controller('AppController',['$scope', function($scope) {
+  $scope.message ="Hi";
 
-myApp.controller('AppController', function($scope) {
-  $scope.message ="HI";
-})
+  $scope.ninjas = ['don', 'mike', 'leo'];
+}]);

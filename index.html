@@ -9,20 +9,26 @@
   </head>
   <body ng-init="number=[1,2,3,4]; color='pink'; ninjas=['yoshi', 'ryu', 'don']">
     <div ng-controller="AppController">
-    <!-- this is an example of 2-way data binding  -->
-    <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
-    <input type="text" ng-model="favMeat" placeholder="eanter you fav meat" />
-    <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
-    
-    <!-- this is an example of an expression -->
-    <p>{{2 + 2}}</p>
-    
-    <p>You're favorite number is {{number[2]}}</p>
-    
-    
-    <!-- this shows how the ng-repeat directive works, similar to mapping -->
-    <li ng-repeat="ninja in ninjas">{{ ninjas[1] == ninja ? ninja : null}}</li>
-    
+      <!-- this is an example of 2-way data binding  -->
+      <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
+      <input type="text" ng-model="favMeat" placeholder="eanter you fav meat" />
+      <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
+      
+      <!-- this is an example of an expression -->
+      <p>{{2 + 2}}</p>
+      
+      <p>You're favorite number is {{number[2]}}</p>
+      
+      
+      <!-- this shows how the ng-repeat directive works, similar to mapping -->
+      <li ng-repeat="ninja in ninjas">{{ ninjas[1] == ninja ? ninja : null}}</li>
+      
+      <br/> 
+
+      <!-- the scope data overrrides the data in the ng-init directive above -->
+      <li ng-repeat="ninja in ninjas">{{ ninja}}</li>
+  
+      <!-- this message comes from the scope of the controller function -->
       <p>{{message}}</p>
     </div>
   </body>
