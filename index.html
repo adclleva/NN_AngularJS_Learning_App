@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <!-- this is also a directive -->
-<html lang="en" ng-app>
+<html lang="en" ng-app="App">
   <head>
     <title>TheNetNinja Angular Playlist</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
-    <script src="lib/angular.min.js"></script>
+    <script src="assets/lib/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
   </head>
-  <body ng-init="number=[1,2,3,4]; color='pink'">
+  <body ng-init="number=[1,2,3,4]; color='pink'; ninjas=['yoshi', 'ryu', 'don']">
+    <div ng-controller="AppController">
     <!-- this is an example of 2-way data binding  -->
     <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
     <input type="text" ng-model="favMeat" placeholder="eanter you fav meat" />
     <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
-
+    
     <!-- this is an example of an expression -->
     <p>{{2 + 2}}</p>
-
+    
     <p>You're favorite number is {{number[2]}}</p>
+    
+    
+    <!-- this shows how the ng-repeat directive works, similar to mapping -->
+    <li ng-repeat="ninja in ninjas">{{ ninjas[1] == ninja ? ninja : null}}</li>
+    
+      <p>{{message}}</p>
+    </div>
   </body>
 </html>
