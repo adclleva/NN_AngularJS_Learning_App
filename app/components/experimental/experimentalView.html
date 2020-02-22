@@ -1,0 +1,56 @@
+<div class="content">
+  <div ng-controller="AppController">
+    <!-- this is an example of 2-way data binding  -->
+    <!-- directives dont have to be attributes but they can be custom directive html tags as well -->
+    <input type="text" ng-model="favMeat" placeholder="enter you fav meat" />
+    <p style="color:{{color}}">Your fav meat is {{favMeat}}</p>
+    
+    <!-- this is an example of an expression -->
+    <p>{{2 + 2}}</p>
+    
+    <p>You're favorite number is {{number[2]}}</p>
+    
+    
+    <!-- this shows how the ng-repeat directive works, similar to mapping -->
+    <li ng-repeat="ninja in ninjas">{{ ninjas[1] == ninja ? ninja : null}}</li>
+    
+    <br/> 
+  
+    <!-- the scope data overrrides the data in the ng-init directive above -->
+    <li ng-repeat="ninja in ninjas">{{ninja}}</li>
+    {{test1}}
+  
+    <!-- this message comes from the scope of the controller function -->
+    <p>{{message}}</p>
+  
+    <!-- the pipe operator allows us to alter the given data 
+    we can use it multiple times -->
+    <li ng-repeat="person in people | orderBy: 'name'">{{person.name}}</li>
+    
+      <br>
+  
+    <!-- whatever we type in this input, it will be stored into search for our filter  -->
+    <input type="text" ng-model="search1" placeholder="type here to filter the list below"/> 
+    <ul>
+      <li ng-repeat="person in people | orderBy: 'name' | filter: search1">{{person.name}} - {{person.age}}</li>
+    </ul>
+    
+    <ul>
+      <li ng-repeat="person in people | orderBy: 'name'">{{person.name}} - {{person.age | currency: '£'}}</li>
+    </ul>
+  
+    <input type="text" ng-model="search2" placeholder="type here to filter the list below"/> 
+  
+    <!-- this is getting the available boolean value and it'll be evaulated through the ng-show here to check if the element will show or not -->
+    <!-- this case, if it's true, then it will show with ng-show -->
+    <ul>
+      <li ng-repeat="person in people | orderBy: 'name' | filter: search2" ng-show="person.available">{{person.name}} - {{person.age}}</li>
+    </ul>
+  
+    <!-- this case, if value is true, then it will hide with ng-hide -->
+    <p>Ng-Hide</p>
+    <ul>
+      <li ng-repeat="person in people | orderBy: 'name' | filter: search2" ng-hide="person.available">{{person.name}} - {{person.age}}</li>
+    </ul>
+  </div>
+</div>
