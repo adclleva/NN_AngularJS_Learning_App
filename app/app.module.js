@@ -18,6 +18,25 @@ myApp.controller('AppController',['$scope', function($scope) {
   $scope.message ="Hi";
   $scope.ninjas = ['don', 'mike', 'leo'];
 
+  $scope.addPerson = function() {
+    var newPerson = {
+      name: $scope.newPerson.name,
+      age: parseInt($scope.newPerson.age),
+      favoriteColor: $scope.newPerson.favoriteColor,
+      available: true,
+      thumb: "../assets/img/user_avatar.png"
+    }
+
+    // we push the new object to the array
+    $scope.people.push(newPerson);
+
+    // we have to reset the data so the values can be empty again once you submit
+    $scope.newPerson.name = "";
+    $scope.newPerson.age = "";
+    $scope.newPerson.favoriteColor = "";
+
+  }
+
   $scope.removePerson = function(name){
     // remember the es5 rules for the array methods
     var newPeople =  $scope.people.filter(function(person) {
@@ -32,27 +51,29 @@ myApp.controller('AppController',['$scope', function($scope) {
       name: "Bob",
       age: 23,
       favoriteColor: "blue",
-      available: true
+      available: true,
+      thumb: "../assets/img/user_avatar.png"
     },
     {
       name: "Sam",
       age: 2,
       favoriteColor: "red",  
-      available: false     
+      available: false,
+      thumb: "../assets/img/user_avatar.png"     
     },
     {      
       name: "Jessy",
       age: 42,
       favoriteColor: "purple",
-      
-      available: true
+      available: true,
+      thumb: "../assets/img/user_avatar.png"
     },
     {      
       name: "Sally",
       age: 37,
       favoriteColor: "pink",
-      available: false
-      
+      available: false,
+      thumb: "../assets/img/user_avatar.png"
     }
   ]
         

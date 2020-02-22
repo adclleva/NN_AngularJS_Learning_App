@@ -72,14 +72,25 @@
           <button ng-click="orderValue = 'age'">Order by age </button>
           <ul>
             <li ng-repeat="person in people | orderBy: orderValue">
+              <img ng-src="{{person.thumb}}" 
+                   style="width: 1em; height:1em; margin: -12px 10px 0 0;"
+                   ng-show="person.thumb"/>
               <h3>
                 {{person.name}} - {{person.age}}
               </h3>
+              <!-- this ng-click directive allows us to run a function within the app.module.js -->
               <div class="remove" ng-click="removePerson(person.name)">x</div>
               <span class="belt" style="color:{{person.favoriteColor}}">Color: {{person.favoriteColor}}</span>
             </li>
-
           </ul>
+
+          <!-- the ng-submit directive is when the submit type button is clicked, it will run the addPerson function -->
+          <form ng-submit="addPerson()">
+            <input type="text" placeholder="name" ng-model="newPerson.name"/>
+            <input type="text" placeholder="age" ng-model="newPerson.age"/>
+            <input type="text" placeholder="favoriteColor" ng-model="newPerson.favoriteColor"/>
+            <input type="submit" value="Add new person" />
+          </form>
         </div>
     </div>
   </body>
