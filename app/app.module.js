@@ -17,23 +17,43 @@ var myApp = angular.module('App', []); // the variable and the parameter inside 
 myApp.controller('AppController',['$scope', function($scope) {
   $scope.message ="Hi";
   $scope.ninjas = ['don', 'mike', 'leo'];
+
+  $scope.removePerson = function(name){
+    // remember the es5 rules for the array methods
+    var newPeople =  $scope.people.filter(function(person) {
   
+      return name !== person.name;
+    });
+    $scope.people = newPeople;
+  };
+
   $scope.people = [
     {
       name: "Bob",
-      age: 23
+      age: 23,
+      favoriteColor: "blue",
+      available: true
     },
     {
       name: "Sam",
-      age: 2     
+      age: 2,
+      favoriteColor: "red",  
+      available: false     
     },
     {      
       name: "Jessy",
-      age: 42
+      age: 42,
+      favoriteColor: "purple",
+      
+      available: true
     },
     {      
       name: "Sally",
-      age: 37
+      age: 37,
+      favoriteColor: "pink",
+      available: false
+      
     }
   ]
+        
 }]);
