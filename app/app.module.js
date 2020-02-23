@@ -33,7 +33,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 // this is will the dependencies and the function when you wrap the second parameter as an array
 // because sometime we might have multiple controllers with the same name of scopes
 // this sets the initial state
-myApp.controller('AppController',['$scope', function($scope) {
+myApp.controller('AppController',['$scope', '$http', function($scope, $http) {
   $scope.message ="Hi";
   $scope.ninjas = ['don', 'mike', 'leo'];
 
@@ -65,35 +65,49 @@ myApp.controller('AppController',['$scope', function($scope) {
     $scope.people = newPeople;
   };
 
-  $scope.people = [
-    {
-      name: "Bob",
-      age: 23,
-      favoriteColor: "blue",
-      available: true,
-      thumb: "../assets/img/user_avatar.png"
-    },
-    {
-      name: "Sam",
-      age: 2,
-      favoriteColor: "red",  
-      available: false,
-      thumb: "../assets/img/user_avatar.png"     
-    },
-    {      
-      name: "Jessy",
-      age: 42,
-      favoriteColor: "purple",
-      available: true,
-      thumb: "../assets/img/user_avatar.png"
-    },
-    {      
-      name: "Sally",
-      age: 37,
-      favoriteColor: "pink",
-      available: false,
-      thumb: "../assets/img/user_avatar.png"
-    }
-  ]
+  // this is how to get data from an api
+  $http.get('assets/data/people.json')
+    .then(function successCallback(response) {
+      $scope.people = response.data
+      console.log("Status:", response.statusText)
+    }, function errorCallback(response) {
+      console.log("Status:",response.statusText);
+    });
+  
+
+  // we wont be using this anymore because we'll be making a http request to get the data
+  // $scope.people = [
+  //   {
+  //     name: "Bob",
+  //     age: 23,
+  //     favoriteColor: "blue",
+  //     available: true,
+  //     thumb: "../assets/img/user_avatar.png"
+  //   },
+  //   {
+  //     name: "Sam",
+  //     age: 2,
+  //     favoriteColor: "red",  
+  //     available: false,
+  //     thumb: "../assets/img/user_avatar.png"     
+  //   },
+  //   {      
+  //     name: "Jessy",
+  //     age: 42,
+  //     favoriteColor: "purple",
+  //     available: true,
+  //     thumb: "../assets/img/user_avatar.png"
+  //   },
+  //   {      
+  //     name: "Sally",
+  //     age: 37,
+  //     favoriteColor: "pink",
+  //     available: false,
+  //     thumb: "../assets/img/user_avatar.png"
+  //   }
+  // ]
+  // Json stands for javascript object notation
+  // remember that with json the keys and values are strings
+  // console.log(angular.toJson($scope.people));
         
 }]);
