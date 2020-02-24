@@ -1,1 +1,13 @@
-<h1>Home Page </h1>
+<div class="content">
+  <h1>Home Page </h1>
+  
+  <!-- this will be learning about custom directives, we use hyphens for angular tags-->
+  <!-- you don't put a single quotation for people becuase we are passing in a JS object -->
+  <!-- while title is passed through as a string -->
+  <!-- the people data is being gathered from the controller asynchronously -->
+  <random-person 
+    length="length"
+    people="people"
+    title="'Random Person'"
+  ></random-person>
+</div>
