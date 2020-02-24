@@ -36,8 +36,8 @@ myApp.directive('randomPerson',['$http', function($http) {  // this object that 
       // the equal sign means that it'll bind it
       people: '=',
       title: '=',
-      length: '='
-    },
+      length: '=',
+     },
 
     // we can use this to show the view
   
@@ -47,17 +47,7 @@ myApp.directive('randomPerson',['$http', function($http) {  // this object that 
     // this scope is refering to the scope of this directive
     // we can also make the controller be 'AppController' or any other controller
     controller: function($scope) {
-      $http.get('assets/data/people.json')
-      .then(function successCallback(response) {
-        var people = response.data;
-        var size = response.data.length;
-        var randomIndex = Math.floor(Math.random() * size);
-        $scope.randomPerson =  people[randomIndex];
-
-        console.log($scope.randomPerson, "what");
-        }, function errorCallback(response) {
-          console.log("Status:",response.statusText);
-        });
+      $scope.randomNumber = Math.floor(Math.random() * 4);
     }
     // you can make your controller like this
   };
