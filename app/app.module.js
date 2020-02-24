@@ -43,6 +43,8 @@ myApp.directive('randomPerson',['$http', function($http) {  // this object that 
   
 
     templateUrl: 'app/components/random/random.html',
+    transclude: true,
+    replace: true, // this will make it more complient when deployed
 
     // this scope is refering to the scope of this directive
     // we can also make the controller be 'AppController' or any other controller
